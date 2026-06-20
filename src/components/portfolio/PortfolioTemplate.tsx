@@ -1,6 +1,6 @@
 import React from 'react';
 import { ResumeData } from '@/types/resume';
-import { Github, Linkedin, Mail, ExternalLink, Code } from 'lucide-react';
+import { Mail, ExternalLink, Code, Link as LinkIcon, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function PortfolioTemplate({ data }: { data: ResumeData }) {
@@ -25,8 +25,8 @@ export default function PortfolioTemplate({ data }: { data: ResumeData }) {
             {personalInfo.firstName} {personalInfo.lastName}
           </div>
           <div className="flex gap-4">
-            {personalInfo.github && <a href={`https://${personalInfo.github}`} target="_blank" className="opacity-70 hover:opacity-100"><Github className="w-5 h-5"/></a>}
-            {personalInfo.linkedin && <a href={`https://${personalInfo.linkedin}`} target="_blank" className="opacity-70 hover:opacity-100"><Linkedin className="w-5 h-5"/></a>}
+            {personalInfo.github && <a href={`https://${personalInfo.github}`} target="_blank" className="opacity-70 hover:opacity-100 flex items-center gap-1 text-sm"><Code className="w-4 h-4"/> GitHub</a>}
+            {personalInfo.linkedin && <a href={`https://${personalInfo.linkedin}`} target="_blank" className="opacity-70 hover:opacity-100 flex items-center gap-1 text-sm"><User className="w-4 h-4"/> LinkedIn</a>}
           </div>
         </div>
       </nav>
@@ -89,7 +89,7 @@ export default function PortfolioTemplate({ data }: { data: ResumeData }) {
                   <div className="flex justify-between items-start mb-4">
                     <h4 className="text-xl font-bold">{proj.name}</h4>
                     <div className="flex gap-3">
-                      {proj.github && <a href={`https://${proj.github}`} target="_blank" className="opacity-50 hover:opacity-100"><Github className="w-5 h-5"/></a>}
+                      {proj.github && <a href={`https://${proj.github}`} target="_blank" className="opacity-50 hover:opacity-100"><Code className="w-5 h-5"/></a>}
                       {proj.live && <a href={`https://${proj.live}`} target="_blank" className="opacity-50 hover:opacity-100 text-blue-500"><ExternalLink className="w-5 h-5"/></a>}
                     </div>
                   </div>
