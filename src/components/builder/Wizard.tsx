@@ -48,10 +48,10 @@ export default function Wizard() {
       <div className="mb-8">
         <div className="flex justify-between items-end mb-4">
           <div>
-            <h1 className="font-heading text-3xl font-bold tracking-tight text-white mb-1">
+            <h1 className="font-heading text-3xl font-bold tracking-tight text-foreground mb-1">
               {STEPS[currentStepIndex].title}
             </h1>
-            <p className="text-neutral-400 text-sm">
+            <p className="text-muted-foreground text-sm">
               Step {currentStepIndex + 1} of {STEPS.length}
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function Wizard() {
             <div 
               key={step.id}
               className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
-                idx <= currentStepIndex ? 'bg-blue-500' : 'bg-white/10'
+                idx <= currentStepIndex ? 'bg-blue-500' : 'bg-muted dark:bg-white/10'
               }`}
             />
           ))}
@@ -70,7 +70,7 @@ export default function Wizard() {
       </div>
 
       {/* Step Content */}
-      <div className="flex-1 bg-[#111] border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+      <div className="flex-1 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden transition-colors duration-200">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentStepIndex}
@@ -90,18 +90,18 @@ export default function Wizard() {
           variant="outline" 
           onClick={prevStep}
           disabled={isFirstStep}
-          className="border-white/10 bg-white/5 hover:bg-white/10 text-white"
+          className="border-border bg-card hover:bg-muted text-foreground transition-all"
         >
           <ChevronLeft className="w-4 h-4 mr-2" /> Back
         </Button>
         
         {isLastStep ? (
-          <Button onClick={goToDashboard} className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0">
+          <Button onClick={goToDashboard} className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 transition-transform hover:scale-105 shadow-md">
             Finish & Generate
             <Save className="w-4 h-4 ml-2" />
           </Button>
         ) : (
-          <Button onClick={nextStep} className="bg-white text-black hover:bg-neutral-200">
+          <Button onClick={nextStep} className="transition-transform hover:scale-105 shadow-sm">
             Continue
             <ChevronRight className="w-4 h-4 ml-2" />
           </Button>

@@ -3,7 +3,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Plus, Trash2 } from 'lucide-react';
-import { Education } from '@/types/resume';
 
 export default function EducationStep() {
   const { data, addEducation, updateEducation, removeEducation } = useResumeStore();
@@ -23,10 +22,10 @@ export default function EducationStep() {
   return (
     <div className="space-y-6">
       {data.education.map((edu, index) => (
-        <div key={edu.id} className="p-4 bg-white/5 border border-white/10 rounded-xl relative space-y-4">
+        <div key={edu.id} className="p-4 bg-muted/30 border border-border rounded-xl relative space-y-4 transition-colors">
           <div className="flex justify-between items-center mb-2">
-            <h4 className="font-medium text-blue-400">Education #{index + 1}</h4>
-            <Button variant="ghost" size="icon" onClick={() => removeEducation(edu.id)} className="text-red-400 hover:text-red-300 hover:bg-red-500/10 h-8 w-8">
+            <h4 className="font-semibold text-blue-600 dark:text-blue-400">Education #{index + 1}</h4>
+            <Button variant="ghost" size="icon" onClick={() => removeEducation(edu.id)} className="text-red-500 hover:text-red-400 hover:bg-red-500/10 h-8 w-8">
               <Trash2 className="w-4 h-4" />
             </Button>
           </div>
@@ -38,7 +37,6 @@ export default function EducationStep() {
                 value={edu.college} 
                 onChange={(e) => updateEducation(edu.id, { college: e.target.value })} 
                 placeholder="Stanford University" 
-                className="bg-white/5 border-white/10" 
               />
             </div>
             <div className="space-y-2">
@@ -47,7 +45,6 @@ export default function EducationStep() {
                 value={edu.degree} 
                 onChange={(e) => updateEducation(edu.id, { degree: e.target.value })} 
                 placeholder="B.S. Computer Science" 
-                className="bg-white/5 border-white/10" 
               />
             </div>
             <div className="space-y-2">
@@ -56,7 +53,6 @@ export default function EducationStep() {
                 value={edu.branch} 
                 onChange={(e) => updateEducation(edu.id, { branch: e.target.value })} 
                 placeholder="Computer Science" 
-                className="bg-white/5 border-white/10" 
               />
             </div>
             <div className="space-y-2">
@@ -65,7 +61,6 @@ export default function EducationStep() {
                 value={edu.startDate} 
                 onChange={(e) => updateEducation(edu.id, { startDate: e.target.value })} 
                 placeholder="Aug 2019" 
-                className="bg-white/5 border-white/10" 
               />
             </div>
             <div className="space-y-2">
@@ -74,7 +69,6 @@ export default function EducationStep() {
                 value={edu.endDate} 
                 onChange={(e) => updateEducation(edu.id, { endDate: e.target.value })} 
                 placeholder="May 2023" 
-                className="bg-white/5 border-white/10" 
               />
             </div>
             <div className="space-y-2 md:col-span-2">
@@ -83,14 +77,13 @@ export default function EducationStep() {
                 value={edu.cgpa} 
                 onChange={(e) => updateEducation(edu.id, { cgpa: e.target.value })} 
                 placeholder="3.8/4.0" 
-                className="bg-white/5 border-white/10" 
               />
             </div>
           </div>
         </div>
       ))}
 
-      <Button onClick={handleAdd} variant="outline" className="w-full border-dashed border-white/20 bg-transparent hover:bg-white/5 text-neutral-300">
+      <Button onClick={handleAdd} variant="outline" className="w-full border-dashed border-border bg-transparent hover:bg-muted text-muted-foreground h-11">
         <Plus className="w-4 h-4 mr-2" /> Add Education
       </Button>
     </div>

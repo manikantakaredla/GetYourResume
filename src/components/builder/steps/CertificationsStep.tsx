@@ -19,10 +19,10 @@ export default function CertificationsStep() {
   return (
     <div className="space-y-6">
       {data.certifications.map((cert, index) => (
-        <div key={cert.id} className="p-4 bg-white/5 border border-white/10 rounded-xl relative space-y-4">
+        <div key={cert.id} className="p-4 bg-muted/30 border border-border rounded-xl relative space-y-4 transition-colors">
           <div className="flex justify-between items-center mb-2">
-            <h4 className="font-medium text-orange-400">Certification #{index + 1}</h4>
-            <Button variant="ghost" size="icon" onClick={() => removeCertification(cert.id)} className="text-red-400 hover:text-red-300 hover:bg-red-500/10 h-8 w-8">
+            <h4 className="font-semibold text-orange-600 dark:text-orange-400">Certification #{index + 1}</h4>
+            <Button variant="ghost" size="icon" onClick={() => removeCertification(cert.id)} className="text-red-500 hover:text-red-400 hover:bg-red-500/10 h-8 w-8">
               <Trash2 className="w-4 h-4" />
             </Button>
           </div>
@@ -34,7 +34,6 @@ export default function CertificationsStep() {
                 value={cert.name} 
                 onChange={(e) => updateCertification(cert.id, { name: e.target.value })} 
                 placeholder="AWS Certified Solutions Architect" 
-                className="bg-white/5 border-white/10" 
               />
             </div>
             <div className="space-y-2">
@@ -43,7 +42,6 @@ export default function CertificationsStep() {
                 value={cert.issuer} 
                 onChange={(e) => updateCertification(cert.id, { issuer: e.target.value })} 
                 placeholder="Amazon Web Services" 
-                className="bg-white/5 border-white/10" 
               />
             </div>
             <div className="space-y-2">
@@ -52,14 +50,13 @@ export default function CertificationsStep() {
                 value={cert.year} 
                 onChange={(e) => updateCertification(cert.id, { year: e.target.value })} 
                 placeholder="2023" 
-                className="bg-white/5 border-white/10" 
               />
             </div>
           </div>
         </div>
       ))}
 
-      <Button onClick={handleAdd} variant="outline" className="w-full border-dashed border-white/20 bg-transparent hover:bg-white/5 text-neutral-300">
+      <Button onClick={handleAdd} variant="outline" className="w-full border-dashed border-border bg-transparent hover:bg-muted text-muted-foreground h-11">
         <Plus className="w-4 h-4 mr-2" /> Add Certification
       </Button>
     </div>

@@ -16,8 +16,8 @@ export default function ThemeSelectionStep() {
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h3 className="text-xl font-medium">Choose your portfolio theme</h3>
-        <p className="text-neutral-400 text-sm mt-1">This will apply to both your PDF and generated portfolio website.</p>
+        <h3 className="text-xl font-medium text-foreground">Choose your portfolio theme</h3>
+        <p className="text-muted-foreground text-sm mt-1">This will apply to both your PDF and generated portfolio website.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -28,7 +28,7 @@ export default function ThemeSelectionStep() {
               key={themeOption.id}
               onClick={() => setTheme(themeOption.id)}
               className={`relative h-32 rounded-xl border-2 cursor-pointer transition-all overflow-hidden flex items-center justify-center
-                ${isSelected ? 'border-blue-500 scale-[1.02] shadow-[0_0_20px_rgba(59,130,246,0.3)]' : 'border-transparent hover:border-white/20'}
+                ${isSelected ? 'border-blue-500 scale-[1.02] shadow-[0_0_20px_rgba(59,130,246,0.3)]' : 'border-transparent hover:border-border dark:hover:border-white/20'}
                 ${themeOption.class}
               `}
             >

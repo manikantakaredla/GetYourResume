@@ -32,12 +32,12 @@ export default function SkillsStep() {
     <div className="space-y-8">
       {CATEGORIES.map((category) => (
         <div key={category} className="space-y-3">
-          <Label className="capitalize text-neutral-300">{category} Skills</Label>
+          <Label className="capitalize text-foreground/80 font-medium">{category} Skills</Label>
           <div className="flex flex-wrap gap-2 mb-2">
             {skills[category].map(skill => (
-              <Badge key={skill} variant="secondary" className="bg-white/10 hover:bg-white/20 text-white border-none py-1 px-3">
+              <Badge key={skill} variant="secondary" className="bg-muted hover:bg-muted/80 text-foreground border border-border/50 py-1 px-3 rounded-md">
                 {skill}
-                <button onClick={() => handleRemoveSkill(category, skill)} className="ml-2 hover:text-red-400 focus:outline-none">
+                <button onClick={() => handleRemoveSkill(category, skill)} className="ml-2 text-muted-foreground hover:text-red-500 focus:outline-none transition-colors">
                   <X className="w-3 h-3" />
                 </button>
               </Badge>
@@ -49,9 +49,8 @@ export default function SkillsStep() {
               onChange={(e) => setNewSkills(prev => ({ ...prev, [category]: e.target.value }))}
               onKeyDown={(e) => e.key === 'Enter' && handleAddSkill(category)}
               placeholder={`Add ${category} skill...`}
-              className="bg-white/5 border-white/10"
             />
-            <Button onClick={() => handleAddSkill(category)} variant="outline" className="border-white/10 bg-white/5 hover:bg-white/10">
+            <Button onClick={() => handleAddSkill(category)} variant="outline" className="border-border bg-card hover:bg-muted text-foreground">
               <Plus className="w-4 h-4" />
             </Button>
           </div>
