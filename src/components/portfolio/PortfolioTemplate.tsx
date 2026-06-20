@@ -120,7 +120,7 @@ export default function PortfolioTemplate({ data }: { data: ResumeData }) {
                   <div key={category}>
                     <div className="text-sm uppercase tracking-wider opacity-60 mb-2 font-semibold">{category}</div>
                     <div className="flex flex-wrap gap-2">
-                      {list.map(skill => (
+                      {(list as string[]).map((skill: string) => (
                         <span key={skill} className={`px-3 py-1.5 rounded-full text-sm ${cardBg}`}>{skill}</span>
                       ))}
                     </div>
